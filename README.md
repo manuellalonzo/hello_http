@@ -6,7 +6,7 @@ This repo will build & configure a cluster of HelloHttp instances with EKS. We w
 Then cd to dem01 and run terraform init and terraform apply. This will build an image based on the docker file and upload it to Your ECR repository and then it will download the image and run the container(s) in AWS EKS.
 
 
-#USAGE:
+# USAGE:
 
 From the demo0 directory run the commands:
 
@@ -22,7 +22,7 @@ Then after commands above completed, cd to demo1 and run:
 
 ```terraform apply``` 
 
-Answer the two questions after starting terrafrom apply:
+Answer the two questions after starting terraform apply:
 
   ```Your AWS account ID```
   
@@ -39,6 +39,14 @@ returns "hello world" , if so then the EKS loadbalancer/container is working as 
 
 ```kubectl get services```
 
+example of curl command output from terraform run: 
+
+ ``` Executing: ["/bin/sh" "-c" "curl -L http://abee0e3710e944f63821b56ca927b30e-1104197218.us-east-2.elb.amazonaws.com:12344"]```
+```null_resource.curl_hello_world (local-exec):   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current```
+```null_resource.curl_hello_world (local-exec):                                  Dload  Upload   Total   Spent    Left  Speed```
+```null_resource.curl_hello_world (local-exec):   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0```
+```null_resource.curl_hello_world (local-exec): 100    27    0    27    0     0    133      0 --:--:-- --:--:-- --:--:--   133```
+# ```null_resource.curl_hello_world (local-exec): <html>hello, world</html> ```
 
 
      
