@@ -7,6 +7,6 @@ resource "null_resource" "ecr_image_upload" {
   }
  provisioner "local-exec" {
 
-    command = "./build_img.sh ${var.AWS_DEFAULT_REGION} ${var.IMAGE_REPO_NAME} ${var.AWS_ACCOUNT_ID} ${var.IMAGE_TAG}"
+    command = "bash build_img.sh ${var.AWS_DEFAULT_REGION} ${var.IMAGE_REPO_NAME} ${var.AWS_ACCOUNT_ID} ${var.IMAGE_TAG}"
   }
 }
